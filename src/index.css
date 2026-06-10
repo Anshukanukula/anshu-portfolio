@@ -169,30 +169,7 @@ body {
   box-shadow: var(--glow-violet), 0 12px 40px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* ──────────── CUSTOM CURSOR ──────────── */
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
-  mix-blend-mode: difference;
-}
 
-.custom-cursor-dot {
-  width: 4px;
-  height: 4px;
-  background-color: var(--blue);
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-}
 
 /* ──────────── BUTTONS ──────────── */
 .btn-grad {
