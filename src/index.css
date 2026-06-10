@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --black:    #030509;
+  --dark-bg:  #080b11;
+  --navy:     #0c1322;
+  --navy2:    #121d33;
+  --blue:     #00f0ff;
+  --blue-rgb: 0, 240, 255;
+  --blue2:    #00a8ff;
+  --violet:   #8a2be2;
+  --violet-rgb: 138, 43, 226;
+  --violet2:  #bf55ec;
+  --white:    #f1f5f9;
+  --muted:    #94a3b8;
+  --glass:    rgba(12, 19, 34, 0.75);
+  --border:   rgba(0, 240, 255, 0.12);
+  --border-violet: rgba(138, 43, 226, 0.15);
+  --glow:     0 0 25px rgba(0, 240, 255, 0.25);
+  --glow-violet: 0 0 25px rgba(138, 43, 226, 0.25);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ──────────── CUSTOM SCROLLBAR ──────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--blue), var(--violet));
+  border-radius: 3px;
+}
+
+/* ──────────── REVEAL ANIMATIONS ──────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.reveal-left {
+  transform: translateX(-40px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(40px);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translate(0) !important;
+}
+
+/* ──────────── MARQUEE (INFINITE SLIDE) ──────────── */
+.marquee-container {
+  overflow: hidden;
+  display: flex;
+  user-select: none;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: linear-gradient(90deg, transparent, rgba(0,240,255,0.03) 15%, rgba(138,43,226,0.03) 85%, transparent);
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 15vw;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--black), transparent);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--black), transparent);
+}
+
+.marquee-track {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  min-width: 100%;
+  animation: scrollMarquee 25s linear infinite;
+}
+
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 1.5rem));
+  }
+}
+
+/* ──────────── GLASS CARD EFFECTS ──────────── */
+.glass-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: var(--glow), 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
+}
+
+.glass-card.violet:hover {
+  border-color: rgba(138, 43, 226, 0.4);
+  box-shadow: var(--glow-violet), 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* ──────────── CUSTOM CURSOR ──────────── */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--blue);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ──────────── BUTTONS ──────────── */
+.btn-grad {
+  position: relative;
+  padding: 0.8rem 2.2rem;
+  background: linear-gradient(135deg, var(--blue2) 0%, var(--violet) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+  letter-spacing: 1px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-grad::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--violet2) 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-grad:hover::before {
+  opacity: 1;
+}
+
+.btn-grad:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 240, 255, 0.4);
+}
+
+.btn-outline-glow {
+  padding: 0.8rem 2.2rem;
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  letter-spacing: 1px;
+}
+
+.btn-outline-glow:hover {
+  background: rgba(0, 240, 255, 0.08);
+  box-shadow: var(--glow);
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ──────────── FLOATING BADGE ──────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating-element {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ──────────── PROJECT SLIDER ──────────── */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem 0.5rem;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 2rem;
+}
+
+.slider-slide {
+  flex: 0 0 100%;
+  max-width: 100%;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+@media (min-width: 768px) {
+  .slider-slide {
+    flex: 0 0 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .slider-slide {
+    flex: 0 0 calc(33.333% - 1.33rem);
+    max-width: calc(33.333% - 1.33rem);
+  }
+}
