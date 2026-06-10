@@ -53,16 +53,16 @@ body {
 /* ──────────── REVEAL ANIMATIONS ──────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(60px);
+  transition: opacity 3.0s cubic-bezier(0.16, 1, 0.3, 1), transform 3.0s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.reveal-left {
-  transform: translateX(-60px);
+  transform: translateX(-100px);
 }
 
 .reveal.reveal-right {
-  transform: translateX(60px);
+  transform: translateX(100px);
 }
 
 .reveal.visible {
