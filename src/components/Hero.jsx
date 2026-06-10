@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+const words = ['Aspiring AI/ML Engineer', 'Data Science Enthusiast', 'Aspiring AI Agent & ML Engineer'];
+
 function StatCounter({ target, suffix = '', label }) {
   const [count, setCount] = useState(0);
 
@@ -65,7 +67,6 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  const words = ['Aspiring AI/ML Engineer', 'Data Science Enthusiast', 'Aspiring AI Agent & ML Engineer'];
   const [wordIdx, setWordIdx] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -194,12 +195,6 @@ export default function Hero() {
 
         <div
           className={`hero-avatar reveal reveal-right ${mounted ? 'visible' : ''} floating-element`}
-          style={{
-            position: 'relative',
-            width: '280px',
-            height: '280px',
-            flexShrink: 0,
-          }}
         >
           <div
             className="avatar-ring"
@@ -248,26 +243,6 @@ export default function Hero() {
                 objectPosition: 'center top',
               }}
             />
-          </div>
-          <div
-            className="cgpa-badge"
-            style={{
-              position: 'absolute',
-              bottom: '-5px',
-              right: '-5px',
-              background: 'linear-gradient(135deg, var(--blue2), var(--violet))',
-              borderRadius: '50px',
-              padding: '0.45rem 1rem',
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              boxShadow: 'var(--glow)',
-              whiteSpace: 'nowrap',
-              color: '#fff',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-            }}
-          >
-            ⭐ CGPA 9.36 / 10
           </div>
         </div>
       </div>

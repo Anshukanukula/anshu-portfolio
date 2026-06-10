@@ -275,3 +275,18 @@ body {
     max-width: calc(33.333% - 1.33rem);
   }
 }
+
+/* ──────────── HERO AVATAR SIZING ──────────── */
+.hero-avatar {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .hero-avatar {
+    width: 220px !important;
+    height: 220px !important;
+    margin: 0 auto;
+  }
+}
