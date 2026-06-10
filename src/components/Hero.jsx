@@ -65,8 +65,7 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Typewriter effect
-  const words = ['AI Engineer', 'Full Stack Developer', 'Machine Learning Specialist', 'Research Author'];
+  const words = ['Aspiring AI/ML Engineer', 'Data Analyst'];
   const [wordIdx, setWordIdx] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
