@@ -172,9 +172,7 @@ export default function Hero() {
             }}
           >
             B.Tech Information Technology Graduate from Vardhaman College of Engineering with a{' '}
-            <strong style={{ color: 'var(--white)' }}>9.36 CGPA</strong>. Specialized in Machine Learning, Deep
-            Learning, NLP, and Full Stack application development. Leveraging computer vision and automation to engineer
-            high-impact real-world solutions.
+            <strong style={{ color: 'var(--white)' }}>9.36 CGPA</strong>. Specialized in AI and Full Stack application development.
           </p>
           <div
             className="hero-btns"
