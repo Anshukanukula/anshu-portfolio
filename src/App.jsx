@@ -12,21 +12,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
-  const [cursorDotPos, setCursorDotPos] = useState({ x: -100, y: -100 });
-
   useEffect(() => {
-    // Custom cursor follower
-    const moveCursor = (e) => {
-      setCursorDotPos({ x: e.clientX, y: e.clientY });
-      // Inner delay for the cursor ring
-      setTimeout(() => {
-        setCursorPos({ x: e.clientX, y: e.clientY });
-      }, 50);
-    };
-
-    window.addEventListener('mousemove', moveCursor);
-
     // Scroll reveal observer
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
@@ -44,32 +30,12 @@ export default function App() {
     reveals.forEach((r) => observer.observe(r));
 
     return () => {
-      window.removeEventListener('mousemove', moveCursor);
       reveals.forEach((r) => observer.unobserve(r));
     };
   }, []);
 
   return (
     <div style={{ position: 'relative', overflowX: 'hidden' }}>
-      {/* Custom Cursor for desktop */}
-      {window.innerWidth > 768 && (
-        <>
-          <div
-            className="custom-cursor"
-            style={{
-              left: `${cursorPos.x}px`,
-              top: `${cursorPos.y}px`,
-            }}
-          />
-          <div
-            className="custom-cursor-dot"
-            style={{
-              left: `${cursorDotPos.x}px`,
-              top: `${cursorDotPos.y}px`,
-            }}
-          />
-        </>
-      )}
 
       {/* Canvas background starfield */}
       <Starfield />

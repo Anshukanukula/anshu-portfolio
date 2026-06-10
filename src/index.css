@@ -53,21 +53,36 @@ body {
 /* ──────────── REVEAL ANIMATIONS ──────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(40px);
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.reveal-left {
-  transform: translateX(-40px);
+  transform: translateX(-60px);
 }
 
 .reveal.reveal-right {
-  transform: translateX(40px);
+  transform: translateX(60px);
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translate(0) !important;
+}
+
+/* Typewriter Blinking Cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background-color: var(--blue);
+  margin-left: 4px;
+  animation: blink 0.8s step-start infinite;
+  vertical-align: middle;
+  box-shadow: var(--glow);
+}
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 /* ──────────── MARQUEE (INFINITE SLIDE) ──────────── */

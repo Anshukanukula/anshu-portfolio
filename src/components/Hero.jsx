@@ -58,6 +58,40 @@ function StatCounter({ target, suffix = '', label }) {
 }
 
 export default function Hero() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 150);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Typewriter effect
+  const words = ['AI Engineer', 'Full Stack Developer', 'Machine Learning Specialist', 'Research Author'];
+  const [wordIdx, setWordIdx] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typedText, setTypedText] = useState('');
+
+  useEffect(() => {
+    if (subIndex === words[wordIdx].length + 1 && !isDeleting) {
+      const timeout = setTimeout(() => setIsDeleting(true), 1500);
+      return () => clearTimeout(timeout);
+    }
+
+    if (subIndex === 0 && isDeleting) {
+      setIsDeleting(false);
+      setWordIdx((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setTypedText(words[wordIdx].substring(0, subIndex + (isDeleting ? -1 : 1)));
+      setSubIndex((prev) => prev + (isDeleting ? -1 : 1));
+    }, isDeleting ? 30 : 80);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, isDeleting, wordIdx]);
+
   return (
     <section
       id="hero"
@@ -85,7 +119,7 @@ export default function Hero() {
           width: '100%',
         }}
       >
-        <div className="reveal reveal-left visible">
+        <div className={`reveal reveal-left ${mounted ? 'visible' : ''}`}>
           <div
             className="hero-tag"
             style={{
@@ -96,7 +130,8 @@ export default function Hero() {
               marginBottom: '1rem',
             }}
           >
-            &lt; AI Engineer &amp; Full Stack Developer /&gt;
+            &lt; {typedText}
+            <span className="typewriter-cursor"></span> /&gt;
           </div>
           <h1
             className="hero-name"
@@ -159,7 +194,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="hero-avatar reveal reveal-right visible floating-element"
+          className={`hero-avatar reveal reveal-right ${mounted ? 'visible' : ''} floating-element`}
           style={{
             position: 'relative',
             width: '280px',
