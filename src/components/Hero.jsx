@@ -65,7 +65,7 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  const words = ['Aspiring AI/ML Engineer', 'Data Analyst'];
+  const words = ['Aspiring AI/ML Engineer', 'Data Science Enthusiast', 'Aspiring AI Agent & ML Engineer'];
   const [wordIdx, setWordIdx] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
