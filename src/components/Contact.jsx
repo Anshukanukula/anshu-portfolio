@@ -10,13 +10,13 @@ export default function Contact() {
     {
       icon: '🔗',
       val: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/kanukula-anshu',
+      url: 'https://www.linkedin.com/in/anshu-kanukula-349919257/',
       external: true,
     },
     {
       icon: '💻',
       val: 'GitHub',
-      url: 'https://github.com/kanukula-anshu',
+      url: 'https://github.com/Anshukanukula',
       external: true,
     },
   ];

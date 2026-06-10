@@ -101,8 +101,8 @@ I have co-authored two peer-reviewed academic papers in international scientific
 
 ## ✉️ Let's Connect
 * **Email:** [anshukanukula03@gmail.com](mailto:anshukanukula03@gmail.com)
-* **LinkedIn:** [kanukula-anshu](https://www.linkedin.com/in/kanukula-anshu)
-* **GitHub:** [kanukula-anshu](https://github.com/kanukula-anshu)
+* **LinkedIn:** [anshu-kanukula-349919257](https://www.linkedin.com/in/anshu-kanukula-349919257/)
+* **GitHub:** [Anshukanukula](https://github.com/Anshukanukula)
 * **Live Website:** [Anshu Portfolio](https://Anshukanukula.github.io/anshu-portfolio/)
 
 ---

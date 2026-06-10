@@ -5,6 +5,18 @@ export default function Experience() {
 
   const experiences = [
     {
+      role: 'Robotic Process Automation Developer',
+      company: 'MassMutual India (AIDEA Program)',
+      period: 'May 2024 – Nov 2024',
+      points: [
+        'Developed and deployed end-to-end Robotic Process Automation (RPA) bots to automate high-volume business transactions and report generation.',
+        'Conducted a comprehensive <strong>RPA case study</strong> on optimizing data extraction and validation processes, reducing manual processing time.',
+        'Integrated automated scripts with legacy applications and relational databases using Python and automation workflows.',
+        'Collaborated with engineering mentors to map business workflows and ensure security compliance during automated data execution.',
+      ],
+      color: 'var(--blue2)',
+    },
+    {
       role: 'Salesforce Developer Intern',
       company: 'SmartBridge',
       period: 'May 2025 – July 2025',
@@ -25,18 +37,6 @@ export default function Experience() {
         'Developed <strong>automated pipelines</strong> for data processing and model validation, enhancing workflow efficiency.',
       ],
       color: 'var(--violet-rgb)',
-    },
-    {
-      role: 'Robotic Process Automation Developer',
-      company: 'MassMutual India (AIDEA Program)',
-      period: 'May 2024 – Nov 2024',
-      points: [
-        'Developed and deployed end-to-end Robotic Process Automation (RPA) bots to automate high-volume business transactions and report generation.',
-        'Conducted a comprehensive <strong>RPA case study</strong> on optimizing data extraction and validation processes, reducing manual processing time.',
-        'Integrated automated scripts with legacy applications and relational databases using Python and automation workflows.',
-        'Collaborated with engineering mentors to map business workflows and ensure security compliance during automated data execution.',
-      ],
-      color: 'var(--blue2)',
     },
   ];
 
