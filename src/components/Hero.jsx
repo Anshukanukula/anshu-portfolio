@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const words = ['Aspiring AI/ML Engineer', 'Data Science Enthusiast', 'Aspiring AI Agent & ML Engineer'];
+const words = ['Data Science Enthusiast', 'Aspiring AI Agent & ML Engineer'];
 
 function StatCounter({ target, suffix = '', label }) {
   const [count, setCount] = useState(0);
